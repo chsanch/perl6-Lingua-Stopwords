@@ -2,9 +2,9 @@
 	"perl"			: "6.c",
 	"name"			: "Lingua::Stopwords",
 	"license"		: "Artistic-2.0",
-	"version"		: "0.1.0",
+	"version"		: "0.0.1",
 	"description"	: "Provides stop words for several languages.",
-	"author"		: "Christian Sánchez",
+	"authors"		: "Christian Sánchez",
 	"provides"		: {
 		"Lingua::Stopwords::ES" : "lib/Lingua/Stopwords/ES.pm6",
 		"Lingua::Stopwords::EN" : "lib/Lingua/Stopwords/EN.pm6",
