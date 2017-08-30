@@ -5,35 +5,34 @@ use Lingua::Stopwords;
 
 our %stop-words is export;
 
-for < de la que el en y a los del se las por un para con no una su al es lo como más pero sus le ya
-o fue este ha sí porque esta son entre está cuando muy sin sobre ser tiene también me hasta
-hay donde han quien están estado desde todo nos durante estados todos uno les ni contra otros
-fueron ese eso había ante ellos e esto mí antes algunos qué unos yo otro otras otra él tanto
-esa estos mucho quienes nada muchos cual sea poco ella estar haber estas estaba estamos
-algunas algo nosotros mi mis tú te ti tu tus ellas nosotras vosotros vosotras os mío mía míos 
-mías tuyo tuya tuyos tuyas suyo suya suyos suyas nuestro nuestra nuestros nuestras vuestro
-vuestra vuestros vuestras esos esas estoy estás está estamos estáis están esté estés estemos
-estéis estén estaré estarás estará estaremos estaréis estarán estaría estarías estaríamos
-estaríais estarían estaba estabas estábamos estabais estaban estuve estuviste estuvo estuvimos
-estuvisteis estuvieron estuviera estuvieras estuviéramos estuvierais estuvieran estuviese
-estuvieses estuviésemos estuvieseis estuviesen estando estado estada estados estadas estad he
-has ha hemos habéis han haya hayas hayamos hayáis hayan habré habrás habrá habremos habréis
-habrán habría habrías habríamos habríais habrían había habías habíamos habíais habían hube
-hubiste hubo hubimos hubisteis hubieron hubiera hubieras hubiéramos hubierais hubieran hubiese
-hubieses hubiésemos hubieseis hubiesen habiendo habido habida habidos habidas soy eres es
-somos sois son sea seas seamos seáis sean seré serás será seremos seréis serán sería serías
-seríamos seríais serían era eras éramos erais eran fui fuiste fue fuimos fuisteis fueron fuera
-fueras fuéramos fuerais fueran fuese fueses fuésemos fueseis fuesen siendo sido tengo tienes
-tiene tenemos tenéis tienen tenga tengas tengamos tengáis tengan tendré tendrás tendrá
-tendremos tendréis tendrán tendría tendrías tendríamos tendríais tendrían tenía tenías
-teníamos teníais tenían tuve tuviste tuvo tuvimos tuvisteis tuvieron tuviera tuvieras
-tuviéramos tuvierais tuvieran tuviese tuvieses tuviésemos tuvieseis tuviesen teniendo tenido
-tenida tenidos tenidas tened > -> $w {
+for < a al algo alguna algunas alguno algunos algún ambos ampleamos ante antes aquel aquellas aquellos
+aqui arriba atras bajo bastante bien cada cierta ciertas cierto ciertos como con conseguimos
+conseguir consigo consigue consiguen consigues contra cual cuando de del dentro desde donde dos
+durante e el ella ellas ellos empleais emplean emplear empleas empleo en encima entonces entre era
+erais eramos eran eras eres es esa esas ese eso esos esta estaba estabais estaban estabas estad
+estada estadas estado estados estais estamos estan estando estar estaremos estará estarán estarás
+estaré estaréis estaría estaríais estaríamos estarían estarías estas este estemos esto estos estoy
+estuve estuviera estuvierais estuvieran estuvieras estuvieron estuviese estuvieseis estuviesen
+estuvieses estuvimos estuviste estuvisteis estuviéramos estuviésemos estuvo está estábamos estáis
+están estás esté estéis estén estés fin fue fuera fuerais fueran fueras fueron fuese fueseis fuesen
+fueses fui fuimos fuiste fuisteis fuéramos fuésemos gueno ha haber habida habidas habido habidos
+habiendo habremos habrá habrán habrás habré habréis habría habríais habríamos habrían habrías habéis
+había habíais habíamos habían habías hace haceis hacemos hacen hacer haces hago han has hasta hay
+haya hayamos hayan hayas hayáis he hemos hube hubiera hubierais hubieran hubieras hubieron hubiese
+hubieseis hubiesen hubieses hubimos hubiste hubisteis hubiéramos hubiésemos hubo incluso intenta
+intentais intentamos intentan intentar intentas intento ir la largo las le les lo los me mi mientras mio mis modo mucho muchos muy más mí mía mías mío míos nada ni no nos nosotras nosotros nuestra
+nuestras nuestro nuestros o os otra otras otro otros para pero poco podeis podemos poder podria
+podriais podriamos podrian podrias por porque porqué primero puede pueden puedo que quien quienes
+qué sabe sabeis sabemos saben saber sabes se sea seamos sean seas ser seremos será serán serás seré
+seréis sería seríais seríamos serían serías seáis si sido siendo sin sobre sois solamente solo somos
+son soy su sus suya suyas suyo suyos sí también tanto te tendremos tendrá tendrán tendrás tendré
+tendréis tendría tendríais tendríamos tendrían tendrías tened teneis tenemos tener tenga tengamos
+tengan tengas tengo tengáis tenida tenidas tenido tenidos teniendo tenéis tenía teníais teníamos
+tenían tenías ti tiempo tiene tienen tienes todo todos trabaja trabajais trabajamos trabajan
+trabajar trabajas trabajo tras tu tus tuve tuviera tuvierais tuvieran tuvieras tuvieron tuviese
+tuvieseis tuviesen tuvieses tuvimos tuviste tuvisteis tuviéramos tuviésemos tuvo tuya tuyas tuyo
+tuyos tú ultimo un una unas uno unos usa usais usamos usan usar usas uso va vais valor vamos van
+vaya verdad verdadera verdadero vosotras vosotros voy vuestra vuestras vuestro vuestros y ya yo él
+éramos > -> $w {
     %stop-words{$w} = 1;
 }
-
-# sub list-words is export {
-#     say "LISTO!"
-# }
-
-# say "loading Es";
