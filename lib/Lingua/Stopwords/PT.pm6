@@ -1,5 +1,5 @@
 use v6.c;
-unit module Lingua::Stopwords::IT;
+unit module Lingua::Stopwords::PT;
 use Lingua::Stopwords;
 
 sub get-list ( Str $list = 'snowball' ) is export {

@@ -4,7 +4,7 @@ Provides Stopwords for several languages. This modules is based in the Perl 5 mo
 
 ## Stopwords lists
 
-For each language, this module provides a merged Stopwords list from different sources when available.
+For each language, this module provides Stopwords list from different sources.
 
 ### Spanish
 
@@ -16,3 +16,6 @@ For each language, this module provides a merged Stopwords list from different s
 - [Snowball](http://snowball.tartarus.org/algorithms/english/stop.txt)
 - [Ranks NL (Long List)](http://www.ranks.nl/stopwords)
 
+### Italian
+
+### Portuguese

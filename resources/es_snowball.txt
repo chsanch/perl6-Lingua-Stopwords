@@ -28,14 +28,12 @@ eran
 eras
 eres
 es
-es
 esa
 esas
 ese
 eso
 esos
 esta
-estaba
 estaba
 estabais
 estaban
@@ -44,10 +42,7 @@ estad
 estada
 estadas
 estado
-estado
 estados
-estados
-estamos
 estamos
 estando
 estar
@@ -85,10 +80,8 @@ estuviéramos
 estuviésemos
 estuvo
 está
-está
 estábamos
 estáis
-están
 están
 estás
 esté
@@ -96,12 +89,10 @@ estéis
 estén
 estés
 fue
-fue
 fuera
 fuerais
 fueran
 fueras
-fueron
 fueron
 fuese
 fueseis
@@ -113,7 +104,6 @@ fuiste
 fuisteis
 fuéramos
 fuésemos
-ha
 ha
 haber
 habida
@@ -134,12 +124,10 @@ habrían
 habrías
 habéis
 había
-había
 habíais
 habíamos
 habían
 habías
-han
 han
 has
 hasta
@@ -212,7 +200,6 @@ quienes
 qué
 se
 sea
-sea
 seamos
 sean
 seas
@@ -235,7 +222,6 @@ sin
 sobre
 sois
 somos
-son
 son
 soy
 su
@@ -279,7 +265,6 @@ teníamos
 tenían
 tenías
 ti
-tiene
 tiene
 tienen
 tienes

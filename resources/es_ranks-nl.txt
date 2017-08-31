@@ -109,7 +109,7 @@ podrias
 por
 porqué
 porque
-primero 	
+primero
 puede
 pueden
 puedo
@@ -170,7 +170,7 @@ vamos
 van
 vaya
 verdad
-verdadera 	
+verdadera
 verdadero
 vosotras
 vosotros
