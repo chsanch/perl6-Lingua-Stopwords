@@ -23,6 +23,10 @@
 		"Lingua::Stopwords::SV" : "lib/Lingua/Stopwords/SV.pm6"
 	},
 	"depends"		: [  ],
+	"test-depends" : [
+        "Testo",
+        "Test::META"
+    ],
 	"resources"		: [  ],
 	"source-url"	: "git://github.com/chsanch/perl6-Lingua-Stopwords.git"
 }
