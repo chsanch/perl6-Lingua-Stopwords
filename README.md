@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/chsanch/perl6-Lingua-Stopwords.svg?branch=dev)](https://travis-ci.org/chsanch/perl6-Lingua-Stopwords)
+[![Build Status](https://travis-ci.org/chsanch/perl6-Lingua-Stopwords.svg?branch=master)](https://travis-ci.org/chsanch/perl6-Lingua-Stopwords)
 
 # NAME
 
