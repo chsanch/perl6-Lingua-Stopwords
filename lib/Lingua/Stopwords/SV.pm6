@@ -1,13 +1,13 @@
 use v6.c;
 unit module Lingua::Stopwords::SV;
-use Lingua::Stopwords;
 
-sub get-list ( Str $list = 'snowball' ) is export {
-    my %stop-words;
-    my @word-list;
-    given $list {
+sub get-list ( Str $list = 'snowball' --> SetHash ) is export {
+    
+    my SetHash $stop-words .= new;
+ 
+     given $list {
         when 'all' {
-            @word-list = <  aderton adertonde adjö aldrig alla allas allt alltid alltså andra andras annan annat artonde artonn att av bakom bara behöva 
+            $stop-words = < aderton adertonde adjö aldrig alla allas allt alltid alltså andra andras annan annat artonde artonn att av bakom bara behöva 
                             behövas behövde behövt beslut beslutat beslutit bland blev bli blir blivit bort borta bra bäst bättre båda bådas dag dagar dagarna 
                             dagen de del delen dem den denna deras dess dessa det detta dig din dina dit ditt dock du där därför då efter eftersom ej elfte 
                             eller elva en enkel enkelt enkla enligt er era ert ett ettusen fanns fem femte femtio femtionde femton femtonde fick fin finnas 
@@ -26,10 +26,10 @@ sub get-list ( Str $list = 'snowball' ) is export {
                             tolfte tolv tre tredje trettio trettionde tretton trettonde två tvåhundra under upp ur ursäkt ut utan utanför ute vad var vara 
                             varför varifrån varit varje varken vars varsågod vart vem vems verkligen vi vid vidare viktig viktigare viktigast viktigt vilka 
                             vilkas vilken vilket vill vänster vänstra värre vår våra vårt än ännu är även åt åtminstone åtta åttio åttionde åttonde över 
-                            övermorgon överst övre >;
+                            övermorgon överst övre >.SetHash;
         }
         when 'ranks-nl' {
-            @word-list = <  aderton adertonde adjö aldrig alla allas allt alltid alltså andra andras annan annat artonde artonn att av bakom bara behöva 
+            $stop-words = < aderton adertonde adjö aldrig alla allas allt alltid alltså andra andras annan annat artonde artonn att av bakom bara behöva 
                             behövas behövde behövt beslut beslutat beslutit bland blev bli blir blivit bort borta bra bäst bättre båda bådas dag dagar dagarna 
                             dagen de del delen dem den deras dess det detta dig din dina dit ditt dock du där därför då efter eftersom elfte eller elva en 
                             enkel enkelt enkla enligt er era ert ett ettusen fanns fem femte femtio femtionde femton femtonde fick fin finnas finns fjorton 
@@ -47,23 +47,19 @@ sub get-list ( Str $list = 'snowball' ) is export {
                             till tills tillsammans tio tionde tjugo tjugoen tjugoett tjugonde tjugotre tjugotvå tjungo tolfte tolv tre tredje trettio 
                             trettionde tretton trettonde två tvåhundra under upp ur ursäkt ut utan utanför ute vad var vara varför varifrån varit varken 
                             varsågod vart vem vems verkligen vi vid vidare viktig viktigare viktigast viktigt vilka vilken vilket vill vänster vänstra värre 
-                            vår våra vårt än ännu även åtminstone åtta åttio åttionde åttonde över övermorgon överst övre >;
+                            vår våra vårt än ännu även åtminstone åtta åttio åttionde åttonde över övermorgon överst övre >.SetHash;
         }
         when 'snowball' {
-            @word-list = <  alla allt att av blev bli blir blivit de dem den denna deras dess dessa det detta dig din dina ditt du där då efter ej eller en er 
+            $stop-words = < alla allt att av blev bli blir blivit de dem den denna deras dess dessa det detta dig din dina ditt du där då efter ej eller en er 
                             era ert ett från för ha hade han hans har henne hennes hon honom hur här i icke ingen inom inte jag ju kan kunde man med mellan 
                             men mig min mina mitt mot mycket ni nu när någon något några och om oss på samma sedan sig sin sina sitta själv skulle som så 
                             sådan sådana sådant till under upp ut utan vad var vara varför varit varje vars vart vem vi vid vilka vilkas vilken vilket vår 
-                            våra vårt än är åt över >;
+                            våra vårt än är åt över >.SetHash;
         }
         default {
             fail "Invalid type of list: $list.";
         }
     }
 
-     for  @word-list -> $w {
-         %stop-words{$w} = 1;
-     }
-
-    return %stop-words;
+    return $stop-words;
 }

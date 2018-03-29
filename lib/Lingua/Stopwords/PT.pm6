@@ -1,13 +1,13 @@
 use v6.c;
 unit module Lingua::Stopwords::PT;
-use Lingua::Stopwords;
 
-sub get-list ( Str $list = 'snowball' ) is export {
-    my %stop-words;
-    my @word-list;
+sub get-list ( Str $list = 'snowball' --> SetHash ) is export {
+    
+    my SetHash $stop-words .= new;
+
     given $list {
         when 'all' {
-            @word-list = <  a acerca agora algmas alguns ali ambos antes ao aos apontar aquela aquelas aquele aqueles aqui 
+            $stop-words = < a acerca agora algmas alguns ali ambos antes ao aos apontar aquela aquelas aquele aqueles aqui 
                             aquilo as atrás até bem bom cada caminho cima com como comprido conhecido corrente da das de debaixo 
                             dela delas dele deles dentro depois desde desligado deve devem deverá direita diz dizer do dois dos 
                             e ela elas ele eles em enquanto entre então era eram essa essas esse esses esta estado estamos estar 
@@ -25,10 +25,10 @@ sub get-list ( Str $list = 'snowball' ) is export {
                             tentaram tente tentei ter terei teremos teria teriam terá terão teríamos teu teus teve tinha tinham 
                             tipo tive tivemos tiver tivera tiveram tiverem tivermos tivesse tivessem tivéramos tivéssemos todos 
                             trabalhar trabalho tu tua tuas tém têm tínhamos um uma umas uns usa usar valor veja ver verdade 
-                            verdadeiro você vocês vos à às é éramos último >;
+                            verdadeiro você vocês vos à às é éramos último >.SetHash;
         }
         when 'ranks-nl' {
-            @word-list = <  acerca agora algmas alguns ali ambos antes apontar aquela aquelas aquele aqueles aqui atrás bem bom 
+            $stop-words = < acerca agora algmas alguns ali ambos antes apontar aquela aquelas aquele aqueles aqui atrás bem bom 
                             cada caminho cima com como comprido conhecido corrente das debaixo dentro desde desligado deve devem 
                             deverá direita diz dizer dois dos e ela ele eles em enquanto então estado estar estará este estes 
                             esteve estive estivemos estiveram está estão eu fará faz fazer fazia fez fim foi fora horas iniciar 
@@ -36,10 +36,10 @@ sub get-list ( Str $list = 'snowball' ) is export {
                             não nós o onde os ou outro para parte pegar pelo pessoas pode poderá podia por porque povo promeiro 
                             qual qualquer quando quem quieto quê saber sem ser seu somente são tal também tem tempo tenho tentar 
                             tentaram tente tentei teu teve tipo tive todos trabalhar trabalho tu têm um uma umas uns usa usar 
-                            valor veja ver verdade verdadeiro você é último >;
+                            valor veja ver verdade verdadeiro você é último >.SetHash;
         }
         when 'snowball' {
-            @word-list = <  a ao aos aquela aquelas aquele aqueles aquilo as até com como da das de dela delas dele deles depois 
+            $stop-words = < a ao aos aquela aquelas aquele aqueles aquilo as até com como da das de dela delas dele deles depois 
                             do dos e ela elas ele eles em entre era eram essa essas esse esses esta estamos estas estava estavam 
                             este esteja estejam estejamos estes esteve estive estivemos estiver estivera estiveram estiverem 
                             estivermos estivesse estivessem estivéramos estivéssemos estou está estávamos estão eu foi fomos for 
@@ -51,16 +51,12 @@ sub get-list ( Str $list = 'snowball' ) is export {
                             seremos seria seriam será serão seríamos seu seus somos sou sua suas são só também te tem temos 
                             tenha tenham tenhamos tenho ter terei teremos teria teriam terá terão teríamos teu teus teve tinha 
                             tinham tive tivemos tiver tivera tiveram tiverem tivermos tivesse tivessem tivéramos tivéssemos tu 
-                            tua tuas tém têm tínhamos um uma você vocês vos à às é éramos >;
+                            tua tuas tém têm tínhamos um uma você vocês vos à às é éramos >.SetHash;
         }
         default {
             fail "Invalid type of list: $list.";
         }
     }
 
-     for  @word-list -> $w {
-         %stop-words{$w} = 1;
-     }
-
-    return %stop-words;
+    return $stop-words;
 }

@@ -1,13 +1,13 @@
 use v6.c;
 unit module Lingua::Stopwords::EN;
-use Lingua::Stopwords;
 
-sub get-list ( Str $list = 'snowball' ) is export {
-    my %stop-words;
-    my @word-list;
+sub get-list ( Str $list = 'snowball' --> SetHash ) is export {
+    
+    my SetHash $stop-words .= new;
+    
     given $list {
         when 'all' {
-            @word-list = <  'll 've a able about above abst accordance according accordingly across act actually added adj 
+            $stop-words = <  'll 've a able about above abst accordance according accordingly across act actually added adj 
                             affected affecting affects after afterwards again against ah all almost alone along already also 
                             although always am among amongst an and announce another any anybody anyhow anymore anyone anything 
                             anyway anyways anywhere apparently approximately are aren aren't arent arise around as aside ask 
@@ -52,10 +52,10 @@ sub get-list ( Str $list = 'snowball' ) is export {
                             wherever whether which while whim whither who who'll who's whod whoever whole whom whomever whos 
                             whose why why's widely willing wish with within without won't wont words world would wouldn't 
                             wouldnt www x y yes yet you you'd you'll you're you've youd your youre yours yourself yourselves z 
-                            zero >;
+                            zero >.SetHash;
         }
         when 'ranks-nl' {
-            @word-list = <  a able about above abst accordance according accordingly across act actually added adj affected affecting affects after afterwards
+            $stop-words = <  a able about above abst accordance according accordingly across act actually added adj affected affecting affects after afterwards
                             again against ah all almost alone along already also although always am among amongst an and announce another any anybody anyhow
                             anymore anyone anything anyway anyways anywhere apparently approximately are aren arent arise around as aside ask asking at auth
                             available away awfully b back be became because become becomes becoming been before beforehand begin beginning beginnings begins
@@ -87,10 +87,10 @@ sub get-list ( Str $list = 'snowball' ) is export {
                             various 've very via viz vol vols vs w want wants was wasnt way we wed welcome we'll went were werent we've what whatever what'll
                             whats when whence whenever where whereafter whereas whereby wherein wheres whereupon wherever whether which while whim whither who
                             whod whoever whole who'll whom whomever whos whose why widely willing wish with within without wont words world would wouldnt www
-                            x y yes yet you youd you'll your youre yours yourself yourselves you've z zero>;
+                            x y yes yet you youd you'll your youre yours yourself yourselves you've z zero>.SetHash;
         }
         when 'snowball' {
-            @word-list = <  a about above after again against all am an and any are aren't as at be because been before being
+            $stop-words = <  a about above after again against all am an and any are aren't as at be because been before being
                             below between both but by can't cannot could couldn't did didn't do does doesn't doing don't down
                             during each few for from further had hadn't has hasn't have haven't having he he'd he'll he's her
                             here here's hers herself him himself his how how's i i'd i'll i'm i've if in into is isn't it it's
@@ -99,16 +99,12 @@ sub get-list ( Str $list = 'snowball' ) is export {
                             that that's the their theirs them themselves then there there's these they they'd they'll they're
                             they've this those through to too under until up us very was wasn't we we'd we'll we're we've were
                             weren't what what's when when's where where's which while who who's whom why why's with won't would
-                            wouldn't you you'd you'll you're you've your yours yourself yourselves >;
+                            wouldn't you you'd you'll you're you've your yours yourself yourselves >.SetHash;
         }
         default {
             fail "Invalid type of list: $list.";
         }
     }
 
-     for  @word-list -> $w {
-         %stop-words{$w} = 1;
-     }
-
-    return %stop-words;
+    return $stop-words;
 }

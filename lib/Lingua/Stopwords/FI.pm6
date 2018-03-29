@@ -1,13 +1,13 @@
 use v6.c;
 unit module Lingua::Stopwords::FI;
-use Lingua::Stopwords;
 
-sub get-list ( Str $list = 'snowball' ) is export {
-    my %stop-words;
-    my @word-list;
+sub get-list ( Str $list = 'snowball' --> SetHash) is export {
+    
+    my SetHash $stop-words .= new;
+    
     given $list {
         when 'all' {
-            @word-list = <  aiemmin aika aikaa aikaan aikaisemmin aikaisin aikajen aikana aikoina aikoo aikovat aina ainakaan ainakin ainoa ainoat aiomme aion 
+            $stop-words = <  aiemmin aika aikaa aikaan aikaisemmin aikaisin aikajen aikana aikoina aikoo aikovat aina ainakaan ainakin ainoa ainoat aiomme aion 
                             aiotte aist aivan ajan alas alemmas alkuisin alkuun alla alle aloitamme aloitan aloitat aloitatte aloitattivat aloitettava 
                             aloitettevaksi aloitettu aloitimme aloitin aloitit aloititte aloittaa aloittamatta aloitti aloittivat alta aluksi alussa alusta 
                             annettavaksi annetteva annettu antaa antamatta antoi aoua apu asia asiaa asian asiasta asiat asioiden asioihin asioita asti avuksi 
@@ -53,10 +53,10 @@ sub get-list ( Str $list = 'snowball' ) is export {
                             vaikeissa vaikeista vaikka vain varmasti varsin varsinkin varten vasta vastaan vastakkain verran vielä vierekkäin vieri viiden 
                             viime viimeinen viimeisen viimeksi viisi voi voidaan voimme voin voisi voit voitte voivat vuoden vuoksi vuosi vuosien vuosina 
                             vuotta vähemmän vähintään vähiten vähän välillä yhdeksän yhden yhdessä yhteen yhteensä yhteydessä yhteyteen yhtä yhtäälle yhtäällä 
-                            yhtäältä yhtään yhä yksi yksin yksittäin yleensä ylemmäs yli ylös ympäri älköön älä  >;
+                            yhtäältä yhtään yhä yksi yksin yksittäin yleensä ylemmäs yli ylös ympäri älköön älä  >.SetHash;
         }
         when 'ranks-nl' {
-            @word-list = <  aiemmin aika aikaa aikaan aikaisemmin aikaisin aikajen aikana aikoina aikoo aikovat aina ainakaan ainakin ainoa ainoat aiomme aion 
+            $stop-words = <  aiemmin aika aikaa aikaan aikaisemmin aikaisin aikajen aikana aikoina aikoo aikovat aina ainakaan ainakin ainoa ainoat aiomme aion 
                             aiotte aist aivan ajan älä alas alemmas älköön alkuisin alkuun alla alle aloitamme aloitan aloitat aloitatte aloitattivat 
                             aloitettava aloitettevaksi aloitettu aloitimme aloitin aloitit aloititte aloittaa aloittamatta aloitti aloittivat alta aluksi 
                             alussa alusta annettavaksi annetteva annettu antaa antamatta antoi aoua apu asia asiaa asian asiasta asiat asioiden asioihin 
@@ -98,10 +98,10 @@ sub get-list ( Str $list = 'snowball' ) is export {
                             vaiheessa vaikea vaikean vaikeat vaikeilla vaikeille vaikeilta vaikeissa vaikeista vaikka vain välillä varmasti varsin varsinkin 
                             varten vasta vastaan vastakkain verran vielä vierekkäin vieri viiden viime viimeinen viimeisen viimeksi viisi voi voidaan voimme 
                             voin voisi voit voitte voivat vuoden vuoksi vuosi vuosien vuosina vuotta yhä yhdeksän yhden yhdessä yhtä yhtäällä yhtäälle 
-                            yhtäältä yhtään yhteen yhteensä yhteydessä yhteyteen yksi yksin yksittäin yleensä ylemmäs yli ylös ympäri >;
+                            yhtäältä yhtään yhteen yhteensä yhteydessä yhteyteen yksi yksin yksittäin yleensä ylemmäs yli ylös ympäri >.SetHash;
         }
         when 'snowball' {
-            @word-list = <  ei eivät emme en et ette että he heidän heidät heihin heille heillä heiltä heissä heistä heitä hän häneen hänelle hänellä häneltä 
+            $stop-words = <  ei eivät emme en et ette että he heidän heidät heihin heille heillä heiltä heissä heistä heitä hän häneen hänelle hänellä häneltä 
                             hänen hänessä hänestä hänet häntä itse ja johon joiden joihin joiksi joilla joille joilta joina joissa joista joita joka joksi 
                             jolla jolle jolta jona jonka jos jossa josta jota jotka kanssa keiden keihin keiksi keille keillä keiltä keinä keissä keistä keitä 
                             keneen keneksi kenelle kenellä keneltä kenen kenenä kenessä kenestä kenet ketkä ketä koska kuin kuka kun me meidän meidät meihin 
@@ -112,16 +112,12 @@ sub get-list ( Str $list = 'snowball' ) is export {
                             olit olitte olivat olla olleet ollut on ovat poikki se sekä sen siihen siinä siitä siksi sille sillä siltä sinua sinulla sinulle 
                             sinulta sinun sinussa sinusta sinut sinuun sinä sitä tai te teidän teidät teihin teille teillä teiltä teissä teistä teitä tuo 
                             tuohon tuoksi tuolla tuolle tuolta tuon tuona tuossa tuosta tuota tähän täksi tälle tällä tältä tämä tämän tänä tässä tästä tätä 
-                            vaan vai vaikka yli >;
+                            vaan vai vaikka yli >.SetHash;
         }
         default {
             fail "Invalid type of list: $list.";
         }
     }
 
-     for  @word-list -> $w {
-         %stop-words{$w} = 1;
-     }
-
-    return %stop-words;
+    return $stop-words;
 }
