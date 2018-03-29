@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/chsanch/perl6-Lingua-Stopwords.svg?branch=dev)](https://travis-ci.org/chsanch/perl6-Lingua-Stopwords)
+
 # NAME
 
 Lingua::Stopwords - Stop words for several languages.
@@ -47,11 +49,13 @@ For each language, this module provides Stopwords list from different sources. T
 
 | Language   | ISO code | List type               |
 | ---------- | :------: | :---------------------: |
+| Catalan    | ca       | ranks-nl                |
 | Danish     | da       | snowball, ranks-nl, all |
 | Dutch      | nl       | snowball, ranks-nl, all |
 | English    | en       | snowball, ranks-nl, all |
 | Finnish    | fi       | snowball, ranks-nl, all |
 | French     | fr       | snowball, ranks-nl, all |
+| Galician   | gl       | ranks-nl                |
 | German     | de       | snowball, ranks-nl, all |
 | Hebrew     | he       | ranks-nl                |
 | Hungarian  | hu       | snowball, ranks-nl, all |
