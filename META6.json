@@ -2,7 +2,7 @@
 	"perl"			: "6.c",
 	"name"			: "Lingua::Stopwords",
 	"license"		: "Artistic-2.0",
-	"version"		: "0.0.2",
+	"version"		: "0.0.3",
 	"description"	: "Provides stop words for several languages.",
 	"tags"         : [ "nlp", "text" ],
 	"authors"		: "Christian Sánchez",
