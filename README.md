@@ -65,6 +65,7 @@ For each language, this module provides Stopwords list from different sources. T
 | Russian    | ru       | snowball, ranks-nl, all |
 | Spanish    | es       | snowball, ranks-nl, all |
 | Swedish    | sv       | snowball, ranks-nl, all |
+| Arabic     | ar       | ranks-nl, all           |
 
 ---
 # REPOSITORY
